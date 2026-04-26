@@ -30,7 +30,7 @@ export const Sidebar = () => {
         {sidebarOpen ? <PanelRightOpen /> : <PanelRight />}
       </Button>
       <div className="h-[60px] w-full border-b flex justify-start items-center px-4">
-        <h1 className="text-lg font-bold ">Time Complexity</h1>
+        <Link href={"/"} className="hover:underline"><h1 className="text-lg font-bold ">Time Complexity</h1></Link>
       </div>
 
       <ScrollArea className="h-[calc(100%-60px)] w-full p-4 ">
