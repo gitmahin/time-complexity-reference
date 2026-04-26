@@ -13,7 +13,6 @@ import Link from "next/link";
 
 export function EmptyMdx() {
   return (
-    
     <Empty className="h-full ">
       <EmptyHeader>
         <EmptyMedia variant="icon">
@@ -26,10 +25,10 @@ export function EmptyMdx() {
       </EmptyHeader>
       <EmptyContent>
         <Link href={"/"}>
-        <Button variant="outline">
-          <ChevronLeft />
-          Back to Home
-        </Button>
+          <Button variant="outline">
+            <ChevronLeft />
+            Back to Home
+          </Button>
         </Link>
       </EmptyContent>
     </Empty>

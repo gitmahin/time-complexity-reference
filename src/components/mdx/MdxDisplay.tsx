@@ -21,9 +21,11 @@ export const MDXDisplay = async ({
     const { content } = matter(fileContent);
     MDxComponent = await mdxToHtml(content, langData);
   } catch (error) {
-    return <div className="w-full h-screen flex justify-center items-center">
-     <EmptyMdx />
-    </div>
+    return (
+      <div className="w-full h-screen flex justify-center items-center">
+        <EmptyMdx />
+      </div>
+    );
   }
 
   return (
