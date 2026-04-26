@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Sidebar } from "@/components/layout";
 import { ThemeProvider } from "next-themes";
+import { Suspense } from "react";
 
 const geistHeading = Geist({ subsets: ["latin"], variable: "--font-heading" });
 
@@ -52,14 +53,16 @@ export default function RootLayout({
         geistHeading.variable
       )}
     >
-      <ThemeProvider attribute="class" forcedTheme="dark" defaultTheme="dark">
-        <body className="min-h-full flex flex-col">
-          <div className="flex justify-center items-start">
-            <Sidebar />
-            <div className="w-full ">{children}</div>
-          </div>
-        </body>
-      </ThemeProvider>
+      <Suspense>
+        <ThemeProvider attribute="class" forcedTheme="dark" defaultTheme="dark">
+          <body className="min-h-full flex flex-col">
+            <div className="flex justify-center items-start">
+              <Sidebar />
+              <div className="w-full ">{children}</div>
+            </div>
+          </body>
+        </ThemeProvider>
+      </Suspense>
     </html>
   );
 }

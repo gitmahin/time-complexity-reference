@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Time Complexity Reference
 
-## Getting Started
+A clean, fast reference guide for the time complexity of built-in methods across popular programming languages.
 
-First, run the development server:
+## Overview
+
+This site provides a quick lookup for the time complexity of built-in data structure methods across multiple programming languages - useful for code reviews, and writing performant code.
+
+## Languages Covered
+
+- [JavaScript / Node.js](https://time-complexity-reference.vercel.app/nodejs)
+- [Python](https://time-complexity-reference.vercel.app/python)
+- [Java](https://time-complexity-reference.vercel.app/java)
+- [C++](https://time-complexity-reference.vercel.app/cpp)
+- [C](https://time-complexity-reference.vercel.app/c)
+- [C#](https://time-complexity-reference.vercel.app/csharp)
+- [Rust](https://time-complexity-reference.vercel.app/rust)
+
+## Features
+
+- Per-language breakdown of data structure methods
+- Color-coded complexity badges (O(1), O(n), O(log n), O(n log n), O(n²))
+- Filterable by data structure (Array, Map, Set, Object, etc.)
+- Syntax-highlighted code blocks
+
+## Stack
+
+- [Next.js](https://nextjs.org/) - App Router
+- [MDX](https://mdxjs.com/) - Content via `next-mdx-remote`
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [shadcn/ui](https://ui.shadcn.com/) - UI components
+- [Shiki](https://shiki.style/) - Code highlighting
+
+## Contributing
 
 ```bash
+git clone https://github.com/gitmahin/time-complexity-reference.git
+cd time-complexity
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Want to add a language or fix a complexity entry? PRs are welcome.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Add your language data in `src/constants/data.constant.ts`
+2. Create the corresponding MDX file in `src/content/`
+3. Add the language to `listOfProgrammingLanguagesWithLinks` -> `src/constants/sidebar.constant.ts`
+4. Open a pull request
