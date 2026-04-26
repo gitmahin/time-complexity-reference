@@ -1,26 +1,328 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@plugin "@tailwindcss/typography";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-heading);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.141 0.005 285.823);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.141 0.005 285.823);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.141 0.005 285.823);
+  --primary: oklch(0.21 0.006 285.885);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.967 0.001 286.375);
+  --secondary-foreground: oklch(0.21 0.006 285.885);
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(0.552 0.016 285.938);
+  --accent: oklch(0.967 0.001 286.375);
+  --accent-foreground: oklch(0.21 0.006 285.885);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.92 0.004 286.32);
+  --input: oklch(0.92 0.004 286.32);
+  --ring: oklch(0.705 0.015 286.067);
+  --chart-1: oklch(0.871 0.006 286.286);
+  --chart-2: oklch(0.552 0.016 285.938);
+  --chart-3: oklch(0.442 0.017 285.786);
+  --chart-4: oklch(0.37 0.013 285.805);
+  --chart-5: oklch(0.274 0.006 286.033);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.141 0.005 285.823);
+  --sidebar-primary: oklch(0.21 0.006 285.885);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.967 0.001 286.375);
+  --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
+  --sidebar-border: oklch(0.92 0.004 286.32);
+  --sidebar-ring: oklch(0.705 0.015 286.067);
+
+  /* Shiki */
+  --twoslash-border-color: #8888;
+  --twoslash-underline-color: currentColor;
+  --twoslash-highlighted-border: #c37d0d50;
+  --twoslash-highlighted-bg: #c37d0d20;
+  --twoslash-popup-bg: #f8f8f8;
+  --twoslash-popup-color: inherit;
+  --twoslash-popup-shadow: rgba(0, 0, 0, 0.08) 0px 1px 4px;
+  --twoslash-docs-color: #888;
+  --twoslash-docs-font: sans-serif;
+  --twoslash-code-font: inherit;
+  --twoslash-code-font-size: 1em;
+  --twoslash-matched-color: inherit;
+  --twoslash-unmatched-color: #888;
+  --twoslash-cursor-color: #8888;
+  --twoslash-error-color: #d45656;
+  --twoslash-error-bg: #d4565620;
+  --twoslash-warn-color: #c37d0d;
+  --twoslash-warn-bg: #c37d0d20;
+  --twoslash-tag-color: #3772cf;
+  --twoslash-tag-bg: #3772cf20;
+  --twoslash-tag-warn-color: var(--twoslash-warn-color);
+  --twoslash-tag-warn-bg: var(--twoslash-warn-bg);
+  --twoslash-tag-annotate-color: #1ba673;
+  --twoslash-tag-annotate-bg: #1ba67320;
+
+  --code-error-border: #f87171;
+  --code-error-background: #dc262648;
+
+  --code-add-color: #059669;
+  --code-remove-color: #dc2626;
+  --code-add-bg-color: #10b9812a;
+  --code-remove-bg-color: #ef44443a;
+}
+
+.dark {
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.92 0.004 286.32);
+  --primary-foreground: oklch(0.21 0.006 285.885);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.552 0.016 285.938);
+  --chart-1: oklch(0.871 0.006 286.286);
+  --chart-2: oklch(0.552 0.016 285.938);
+  --chart-3: oklch(0.442 0.017 285.786);
+  --chart-4: oklch(0.37 0.013 285.805);
+  --chart-5: oklch(0.274 0.006 286.033);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.552 0.016 285.938);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.prose {
+  max-width: 100%;
+  min-width: 10px;
 }
+
+.prose :where(hr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  border-color: var(--border) !important;
+}
+
+.prose table {
+  margin-top: 0px;
+  margin-bottom: 0px !important;
+}
+
+.prose
+  :where(tbody tr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  border-bottom-width: 1px;
+  border-bottom-color: var(--border) !important;
+}
+
+table th {
+  vertical-align: bottom !important;
+}
+
+@media screen and (max-width: 975px) {
+  .sidebar-button {
+    display: flex !important;
+  }
+  .main_sidebar {
+    position: fixed !important;
+
+    top: 0;
+  }
+}
+
+/* ================ SHIKI STYLE IMPLEMENTATION START ============== */
+.prose code::before,
+.prose code::after {
+  content: none !important;
+}
+
+.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  font-weight: inherit;
+  font-size: inherit;
+  color: inherit;
+  font-family: var(--font-jetbrains-mono);
+   white-space: pre-wrap; 
+  word-break: break-word; 
+  overflow-wrap: break-word;
+}
+pre {
+  font-family: var(--font-jetbrains-mono);
+}
+
+.next-mdx-remote-codeblock code[data-theme*=" "],
+.next-mdx-remote-codeblock code[data-theme*=" "] span {
+  color: var(--shiki-dark);
+}
+
+pre code {
+  background-color: transparent !important;
+  padding: 20px 0px !important;
+  border: none !important;
+
+  .highlighted {
+    background-color: var(--accent);
+  }
+
+  .add {
+    background-color: var(--code-add-bg-color);
+    position: relative;
+  }
+
+  .add:before {
+    content: "+";
+    color: var(--code-add-color);
+    font-size: 18px;
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    padding: 0px;
+    display: inline-block;
+    z-index: 10;
+  }
+
+  .remove {
+    background-color: var(--code-remove-bg-color);
+    position: relative;
+  }
+
+  .remove::before {
+    content: "–";
+    color: var(--code-remove-color);
+    font-size: 18px;
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    padding: 0px;
+    display: inline-block;
+    z-index: 10;
+  }
+
+  .warning {
+    background-color: #ffc1073d;
+    border-left: none;
+    position: relative;
+  }
+
+  .warning::before {
+    content: "⚠️";
+    color: #ffe41b;
+    font-size: 16px;
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    padding: 0px;
+    display: inline-block;
+    z-index: 10;
+  }
+
+  .error {
+    background-color: var(--code-error-background) !important;
+  }
+
+  .highlighted-word {
+    background-color: var(--accent);
+    border: 1px solid var(--border);
+    padding: 1px;
+    border-radius: 3px;
+  }
+}
+
+/* inline padding to view +/- for code add and remove view */
+pre code [data-line] {
+  padding-inline: 35px !important;
+}
+
+/* Apply blur to everything inside <pre> except for .focused elements */
+pre:has(.focused) span {
+  filter: blur(3px);
+  transition: filter 0.2s ease-in-out;
+}
+
+pre code .focused * {
+  filter: none !important;
+}
+pre code .focused {
+  filter: none !important;
+}
+
+/* Optional: On hover, remove the blur from everything */
+pre:has(.focused):hover span {
+  filter: none;
+}
+
+/* ================ SHIKI STYLE IMPLEMENTATION END ============== */

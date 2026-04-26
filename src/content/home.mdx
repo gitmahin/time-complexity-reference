@@ -1,0 +1,50 @@
+# Time Complexity Reference
+
+A clean, fast reference guide for the time complexity of built-in methods across popular programming languages.
+
+## Overview
+
+This site provides a quick lookup for the time complexity of built-in data structure methods across multiple programming languages - useful for code reviews, and writing performant code.
+
+## Languages Covered
+
+- [JavaScript / Node.js](/nodejs)
+- [Python](/python)
+- [Java](/java)
+- [C++](/cpp)
+- [C](/c)
+- [C#](/csharp)
+- [Rust](/rust)
+
+## Features
+
+- Per-language breakdown of data structure methods
+- Color-coded complexity badges (O(1), O(n), O(log n), O(n log n), O(n²))
+- Filterable by data structure (Array, Map, Set, Object, etc.)
+- Syntax-highlighted code blocks
+
+## Stack
+
+- [Next.js](https://nextjs.org/) - App Router
+- [MDX](https://mdxjs.com/) - Content via `next-mdx-remote`
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [shadcn/ui](https://ui.shadcn.com/) - UI components
+- [Shiki](https://shiki.style/) - Code highlighting
+
+## Contributing
+
+```bash
+git clone https://github.com/gitmahin/time-complexity-reference.git
+cd time-complexity
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Want to add a language or fix a complexity entry? PRs are welcome.
+
+1. Add your language data in `src/constants/data.constant.ts`
+2. Create the corresponding MDX file in `src/content/`
+3. Add the language to `listOfProgrammingLanguagesWithLinks` -> `src/constants/sidebar.constant.ts`
+4. Open a pull request
